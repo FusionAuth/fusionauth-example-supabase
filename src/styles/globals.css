@@ -14,7 +14,7 @@
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-rgb: 22, 27, 34;
-    --background-lighter-rgb: 41, 46, 43;
+    --background-lighter-rgb: 36, 41, 48;
   }
 }
 
@@ -48,12 +48,15 @@ a {
 }
 
 main {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   max-width: var(--max-width);
   margin: 0 auto;
   min-height: 100vh;
+  padding: 5vh 0;
+}
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button {
@@ -67,5 +70,21 @@ button {
   border-radius: var(--border-radius);
 }
 button:is(:hover, :focus) {
+  background-color: rgb(var(--background-lighter-rgb));
+}
+
+table {
+  margin: 20px auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  border-bottom: 1px rgba(var(--foreground-rgb), 0.5) solid;
+}
+td, th {
+  padding: 8px 12px;
+  text-align: left;
+}
+tr:nth-child(2n + 1) > td {
   background-color: rgb(var(--background-lighter-rgb));
 }

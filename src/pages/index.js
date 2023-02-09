@@ -1,5 +1,4 @@
 import Head from 'next/head'
-// import styles from '@/styles/Home.module.css'
 import LoginButton from '@/components/login-button'
 
 export default function Home() {
