@@ -4,16 +4,16 @@ export default function Component() {
     const { data: session } = useSession()
     if (session) {
         return (
-            <>
+            <div className="d-flex">
                 Status: Logged in as {session.user.email} <br />
                 <button onClick={() => signOut()}>Log out</button>
-            </>
+            </div>
         )
     }
     return (
-        <>
+        <div className="d-flex">
             Status: Not logged in <br />
             <button onClick={() => signIn()}>Log in</button>
-        </>
+        </div>
     )
 }

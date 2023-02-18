@@ -1,5 +1,5 @@
 {
-  "name": "fusionauth-example-nextjs",
+  "name": "fusionauth-example-nextjs-supabase",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.7.1",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
+    "jose": "^4.11.4",
     "next": "13.1.6",
     "next-auth": "^4.19.2",
     "react": "18.2.0",
