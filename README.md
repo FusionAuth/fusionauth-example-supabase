@@ -7,7 +7,7 @@ This is a simple [Next.js](https://nextjs.org/) application to demonstrate how t
 1. Go through the [5-Minute Guide](https://fusionauth.io/docs/v1/tech/5-minute-setup-guide) to set up your FusionAuth application.
 2. Clone this repository:
     ```shell
-    $ git@github.com:FusionAuth/fusionauth-example-nextjs.git
+    $ git@github.com:FusionAuth/fusionauth-example-nextjs-single-sign-on.git
     ```
 3. Copy `.env.local.dist` to `.env.local` and change the necessary values there.
 4. Run the development server:
