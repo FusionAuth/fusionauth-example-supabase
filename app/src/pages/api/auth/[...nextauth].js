@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth';
 import FusionAuthProvider from 'next-auth/providers/fusionauth';
-import {SignJWT} from 'jose';
+import FusionAuthClient from '@/utils/fusionauth';
 
 export const authOptions = {
     providers: [
@@ -19,22 +19,26 @@ export const authOptions = {
                  * Creating a new JWT for Supabase and using their claims as base
                  * @link https://supabase.com/docs/learn/auth-deep-dive/auth-deep-dive-jwts
                  * @link https://supabase.com/docs/learn/auth-deep-dive/auth-policies
-                 * @type {string}
+                 * @type {FusionAuthClient.JWTVendResponse}
                  */
-                token.accessToken = await new SignJWT({})
-                  .setProtectedHeader({alg: 'HS256'})
-                  .setIssuedAt()
-                  // You can change this to your app name
-                  .setIssuer('My Supabase application')
-                  // The sub claim is usually what we use to match the JWT to rows in your database
-                  .setSubject(token.sub)
-                  // The authenticated role is special in Supabase, it tells the API that this is an authenticated user
-                  // and will know to compare the JWT against any policies you've added to the requested resource (table or row).
-                  .setAudience('authenticated')
-                  .setExpirationTime('1h')
-                  .sign(
-                    Buffer.from(process.env.SUPABASE_SIGNING_SECRET, 'utf8')
-                  );
+                try {
+                    const vending = await FusionAuthClient.vendJWT({
+                        claims: {
+                            // You can change this to your app name
+                            iss: 'My Supabase application',
+                            // The sub claim is usually what we use to match the JWT to rows in your database
+                            sub: token.sub,
+                            // The authenticated role is special in Supabase, it tells the API that this is an authenticated user
+                            // and will know to compare the JWT against any policies you've added to the requested resource (table or row).
+                            aud: 'authenticated',
+                        },
+                        keyId: process.env.FUSIONAUTH_JWT_KEY_ID,
+                        timeToLiveInSeconds: 3600, // 1 hour
+                    });
+                    token.accessToken = vending.response.token;
+                } catch (err) {
+                    console.error('Error issuing JWT', err);
+                }
             }
             return token;
         },
