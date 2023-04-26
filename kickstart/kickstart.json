@@ -63,7 +63,7 @@
                     "name": "Example app",
                     "oauthConfiguration": {
                         "authorizedRedirectURLs": [
-                            "http://localhost/auth/callback/"
+                            "http://localhost:3000/api/auth/callback/fusionauth"
                         ],
                         "clientSecret": "super-secret-secret-that-should-be-regenerated-for-production",
                         "enabledGrants": [
