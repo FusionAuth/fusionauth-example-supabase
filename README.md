@@ -1,7 +1,6 @@
-# Fetching data from Supabase in a Next.js application
+# Example: Fetching data from Supabase in a Next.js application with FusionAuth
 
 This is a simple [Next.js](https://nextjs.org/) application to demonstrate how to use [FusionAuth SSO capabilities](https://fusionauth.io/features/single-sign-on) to authenticate and authorize users and fetch data from [Supabase](https://supabase.com/), an open source hosting service for Postgres databases.
->>>>>>> b0abeee (:memo: Update README)
 
 ## Prerequisites
 You will need the following things properly installed on your computer.
@@ -11,7 +10,7 @@ You will need the following things properly installed on your computer.
 * [Docker](https://www.docker.com): For standing up FusionAuth from within a Docker container. (You can [install it other ways](https://fusionauth.io/docs/v1/tech/installation-guide/), but for this example you'll need Docker.)
 
 ## Installation
-* `git clone https://github.com/FusionAuth/fusionauth-example-supabase
+* `git clone https://github.com/FusionAuth/fusionauth-example-supabase`
 * `cd fusionauth-example-supabase`
 * `docker compose up` (this will block the current terminal)
 * In a new terminal:
