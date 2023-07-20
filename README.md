@@ -28,6 +28,7 @@ For now, get FusionAuth in Docker up and running (via `docker compose up`) if it
 
 > **NOTE**: If you ever want to reset the FusionAuth system, delete the volumes created by docker compose by executing `docker compose down -v`. FusionAuth will only apply the Kickstart settings when it is first run (e.g., it has no data configured for it yet).
 
+If you are already have a FusionAuth instance running, you need to make sure that your application (or your tenant) is using RSA keys instead of HMAC when issuing JWTs. Edit your application (or tenant) JWT settings and set `Access token signing key` to _"Auto generate a new key on save..."_.
 
 ## Running / Development
 
